@@ -17,7 +17,11 @@ const db=require('./util/database')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-db.execute();
+// db.execute('SELECT * from products').then((result)=>{
+// console.log(result[1]);
+// }).catch((err)=>{
+//     console.log(err);
+// });
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
