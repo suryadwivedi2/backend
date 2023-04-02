@@ -14,6 +14,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const userRoutes=require('./routes/adduser');
+const expenseRoutes=require('./routes/expense')
 const sequelize=require('./util/database');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +28,7 @@ app.use(cors());
 //     console.log(err);
 // });
 
+app.use('/expense',expenseRoutes);
 app.use('/user',userRoutes);
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
