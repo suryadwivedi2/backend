@@ -9,6 +9,6 @@ router.get('/get-expense',expensecontroller.getexpenses);
 
 router.delete('/delete-expense/:id',expensecontroller.deleteexpense);
 
-//router.put('/edit-expense/:id',expensecontroller.editexpense)
+router.put('/edit-expense/:id',expensecontroller.editexpense)
 
 module.exports=router;

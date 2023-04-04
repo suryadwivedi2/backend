@@ -18,7 +18,10 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const userRoutes=require('./routes/adduser');
 const expenseRoutes=require('./routes/expense')
+const sellerroute=require('./routes/seller');
 const sequelize=require('./util/database');
+
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,6 +39,7 @@ app.use((req,res,next)=>{
     next();
    }).catch(err=>console.log(err))
 })
+app.use('/seller',sellerroute);
 app.use('/expense',expenseRoutes);
 app.use('/user',userRoutes);
 app.use('/admin', adminRoutes);

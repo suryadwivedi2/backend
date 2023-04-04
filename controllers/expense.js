@@ -23,8 +23,26 @@ exports.getexpenses=async(req,res,next)=>{
 
    exports.deleteexpense=async(req,res,next)=>{
     const expId=req.params.id;
-  await Exp.destroy({where:{id:expId}});
-  res.status(200);   
+   const data =await Exp.destroy({where:{id:expId}});
+  res.status(200).json(data);   
+  }
+  
+  exports.editexpense=async(req,res,next)=>{
+    const expId=req.params.id;
+    const amount=req.body.amount;
+    const description=req.body.description;
+    const category=req.body.category;
+    const data={
+      "amount":amount,
+      "description":description,
+      "category":category
+    }
+    await Exp.update({amount:amount,
+      description:description,
+      category:category
+    },{where:{id:expId}})
+
+    res.json(data)
   }
 
   
