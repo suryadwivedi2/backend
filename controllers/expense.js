@@ -14,8 +14,8 @@ exports.postaddexp=async(req,res,next)=>{
   res.json({expensedetails:data});
 }
 
-exports.getexpenses=(req,res,next)=>{
-    Exp.findAll().then((expenses)=>{
+exports.getexpenses=async(req,res,next)=>{
+  await  Exp.findAll().then((expenses)=>{
      res.json(expenses);
     }).catch(err=>console.log(err))
    }
